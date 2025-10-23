@@ -1,0 +1,842 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ICCCA 2026 - International Conference on Contemporary Catalysis and Applications</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <!-- Announcement Banner -->
+    <div class="announcement-banner" id="announcementBanner">
+        <div class="container">
+            <p><i class="fas fa-bullhorn"></i> Last date for Abstract submission: 29th November 2025 | Registration Deadline: 15th December 2025</p>
+            <button class="close-banner" onclick="closeBanner()"><i class="fas fa-times"></i></button>
+        </div>
+    </div>
+
+    <!-- Navigation -->
+    <nav class="navbar" id="navbar">
+        <div class="container">
+            <div class="nav-brand">
+                <img src="https://via.placeholder.com/60x60/1a472a/ffffff?text=ICUS" alt="ICUS Logo" class="logo">
+                <span class="brand-text">ICCCA 2026</span>
+            </div>
+            <button class="nav-toggle" id="navToggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+            <ul class="nav-menu" id="navMenu">
+                <li><a href="#home" class="nav-link active">Home</a></li>
+                <li><a href="#about" class="nav-link">About</a></li>
+                <li><a href="#scope" class="nav-link">Scope</a></li>
+                <li><a href="#dates" class="nav-link">Important Dates</a></li>
+                <li><a href="#registration" class="nav-link">Registration</a></li>
+                <li><a href="#submission" class="nav-link">Abstract Submission</a></li>
+                <li><a href="#committee" class="nav-link">Committee</a></li>
+                <li><a href="#contact" class="nav-link">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="hero-overlay"></div>
+        <div class="hero-content">
+            <div class="container">
+                <div class="hero-text">
+                    <div class="hero-badge" data-aos="fade-down">
+                        <i class="fas fa-flask"></i> International Conference
+                    </div>
+                    <h1 class="hero-title" data-aos="fade-up" data-aos-delay="100">
+                        International Conference on<br>
+                        <span class="highlight">Contemporary Catalysis</span><br>
+                        and Applications
+                    </h1>
+                    <div class="hero-subtitle" data-aos="fade-up" data-aos-delay="200">
+                        <span class="conference-code">(ICCCA 2026)</span>
+                    </div>
+                    <div class="hero-details" data-aos="fade-up" data-aos-delay="300">
+                        <div class="detail-item">
+                            <i class="fas fa-calendar-alt"></i>
+                            <span>January 15-17, 2026</span>
+                        </div>
+                        <div class="detail-item">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <span>ICUS, Mahatma Gandhi University, Kottayam, Kerala, India</span>
+                        </div>
+                    </div>
+                    <div class="hero-buttons" data-aos="fade-up" data-aos-delay="400">
+                        <a href="#registration" class="btn btn-primary">
+                            <i class="fas fa-user-plus"></i> Register Now
+                        </a>
+                        <a href="#submission" class="btn btn-secondary">
+                            <i class="fas fa-file-upload"></i> Submit Abstract
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="scroll-indicator">
+            <div class="mouse"></div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="section about-section" id="about">
+        <div class="container">
+            <div class="section-header" data-aos="fade-up">
+                <h2 class="section-title">About ICCCA 2026</h2>
+                <div class="section-divider"></div>
+            </div>
+            <div class="about-content">
+                <div class="about-text" data-aos="fade-right">
+                    <p class="lead">In an era defined by the urgent global imperatives for sustainable energy, environmental stewardship, and resource efficiency, catalysis emerges as a transformative force in shaping a circular and green economy.</p>
+                    
+                    <p>The fundamental aim of the <strong>International Conference on Contemporary Catalysis and Applications (ICCCA-2026)</strong> is to open up a fruitful platform gathering 200+ catalytic expert under one roof for 3 days on fundamentals and explore its possibilities towards novel contemporary and green catalysis.</p>
+                    
+                    <p>This conference will serve as a nexus for innovative minds in the field to exchange groundbreaking research, cutting-edge methodologies, and collaboratively chart the future of catalytic science and engineering.</p>
+                    
+                    <p>The conference is envisioned as a dynamic platform for scientific exchange, meticulously designed to accelerate the journey of innovative ideas from foundational concepts to impactful industrial applications. We seek to foster the dissemination of the latest breakthroughs, novel methodologies, and unpublished research across five major sessions:</p>
+                    
+                    <ul class="feature-list">
+                        <li><i class="fas fa-atom"></i> Heterogeneous and Homogeneous catalysis</li>
+                        <li><i class="fas fa-leaf"></i> Green and sustainable catalysis</li>
+                        <li><i class="fas fa-lightbulb"></i> Electrocatalysis and Photocatalysis</li>
+                        <li><i class="fas fa-microscope"></i> Advanced catalytic materials</li>
+                        <li><i class="fas fa-industry"></i> Industrial catalysis and process engineering</li>
+                    </ul>
+
+                    <div class="info-box">
+                        <p>Ultimately, ICCCA 2026 seeks to be more than a meeting; it aims to be a catalyst for progress—sparking vital collaborations, enriching research directions, and contributing tangibly to the development of a sustainable and prosperous global future.</p>
+                    </div>
+                </div>
+                <div class="about-stats" data-aos="fade-left">
+                    <div class="stat-card">
+                        <i class="fas fa-users"></i>
+                        <h3>200+</h3>
+                        <p>Expected Participants</p>
+                    </div>
+                    <div class="stat-card">
+                        <i class="fas fa-calendar-day"></i>
+                        <h3>3 Days</h3>
+                        <p>Conference Duration</p>
+                    </div>
+                    <div class="stat-card">
+                        <i class="fas fa-chalkboard-teacher"></i>
+                        <h3>5+</h3>
+                        <p>Major Sessions</p>
+                    </div>
+                    <div class="stat-card">
+                        <i class="fas fa-globe"></i>
+                        <h3>Global</h3>
+                        <p>International Reach</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Scope Section -->
+    <section class="section scope-section" id="scope">
+        <div class="container">
+            <div class="section-header" data-aos="fade-up">
+                <h2 class="section-title">Scope of the Conference</h2>
+                <div class="section-divider"></div>
+                <p class="section-description">Explore cutting-edge topics in catalysis research and applications</p>
+            </div>
+            <div class="scope-grid">
+                <div class="scope-card" data-aos="fade-up" data-aos-delay="100">
+                    <div class="scope-icon">
+                        <i class="fas fa-atom"></i>
+                    </div>
+                    <h3>Fundamentals of Catalysis</h3>
+                    <p>Exploring the core principles and mechanisms of catalytic processes</p>
+                </div>
+                <div class="scope-card" data-aos="fade-up" data-aos-delay="150">
+                    <div class="scope-icon">
+                        <i class="fas fa-layer-group"></i>
+                    </div>
+                    <h3>Heterogeneous Catalysis</h3>
+                    <p>Advanced studies in solid-phase catalytic systems and applications</p>
+                </div>
+                <div class="scope-card" data-aos="fade-up" data-aos-delay="200">
+                    <div class="scope-icon">
+                        <i class="fas fa-vial"></i>
+                    </div>
+                    <h3>Homogeneous Catalysis</h3>
+                    <p>Research in solution-phase catalysis and molecular catalysts</p>
+                </div>
+                <div class="scope-card" data-aos="fade-up" data-aos-delay="250">
+                    <div class="scope-icon">
+                        <i class="fas fa-dna"></i>
+                    </div>
+                    <h3>Biocatalysis and Enzymology</h3>
+                    <p>Enzyme-based catalysis and biotechnological applications</p>
+                </div>
+                <div class="scope-card" data-aos="fade-up" data-aos-delay="300">
+                    <div class="scope-icon">
+                        <i class="fas fa-bolt"></i>
+                    </div>
+                    <h3>Electrocatalysis and Photocatalysis</h3>
+                    <p>Light and electricity-driven catalytic processes</p>
+                </div>
+                <div class="scope-card" data-aos="fade-up" data-aos-delay="350">
+                    <div class="scope-icon">
+                        <i class="fas fa-leaf"></i>
+                    </div>
+                    <h3>Catalysis for Sustainability</h3>
+                    <p>Green chemistry and sustainable catalytic solutions</p>
+                </div>
+                <div class="scope-card" data-aos="fade-up" data-aos-delay="400">
+                    <div class="scope-icon">
+                        <i class="fas fa-wind"></i>
+                    </div>
+                    <h3>Energy and Environmental Solutions</h3>
+                    <p>Catalysis for clean energy and pollution control</p>
+                </div>
+                <div class="scope-card" data-aos="fade-up" data-aos-delay="450">
+                    <div class="scope-icon">
+                        <i class="fas fa-laptop-code"></i>
+                    </div>
+                    <h3>Computational Catalysis and AI/ML</h3>
+                    <p>Machine learning and computational approaches in catalysis</p>
+                </div>
+                <div class="scope-card" data-aos="fade-up" data-aos-delay="500">
+                    <div class="scope-icon">
+                        <i class="fas fa-cubes"></i>
+                    </div>
+                    <h3>Novel Catalytic Materials</h3>
+                    <p>MOFs, Nanocatalysts, Zeolites and advanced materials</p>
+                </div>
+                <div class="scope-card" data-aos="fade-up" data-aos-delay="550">
+                    <div class="scope-icon">
+                        <i class="fas fa-sun"></i>
+                    </div>
+                    <h3>Catalysis for Energy</h3>
+                    <p>Fuel cells, batteries, and energy conversion systems</p>
+                </div>
+                <div class="scope-card" data-aos="fade-up" data-aos-delay="600">
+                    <div class="scope-icon">
+                        <i class="fas fa-industry"></i>
+                    </div>
+                    <h3>Industrial Catalysis</h3>
+                    <p>Process engineering and industrial applications</p>
+                </div>
+                <div class="scope-card" data-aos="fade-up" data-aos-delay="650">
+                    <div class="scope-icon">
+                        <i class="fas fa-microscope"></i>
+                    </div>
+                    <h3>Advanced Characterization</h3>
+                    <p>Cutting-edge techniques for catalyst analysis</p>
+                </div>
+                <div class="scope-card" data-aos="fade-up" data-aos-delay="700">
+                    <div class="scope-icon">
+                        <i class="fas fa-chart-line"></i>
+                    </div>
+                    <h3>Reaction Kinetics</h3>
+                    <p>Mechanistic studies and kinetic modeling</p>
+                </div>
+                <div class="scope-card" data-aos="fade-up" data-aos-delay="750">
+                    <div class="scope-icon">
+                        <i class="fas fa-bezier-curve"></i>
+                    </div>
+                    <h3>Polymer Synthesis</h3>
+                    <p>Catalysis for polymer and fine chemicals synthesis</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Important Dates Section -->
+    <section class="section dates-section" id="dates">
+        <div class="container">
+            <div class="section-header" data-aos="fade-up">
+                <h2 class="section-title">Important Dates</h2>
+                <div class="section-divider"></div>
+            </div>
+            <div class="timeline">
+                <div class="timeline-item" data-aos="fade-right">
+                    <div class="timeline-icon">
+                        <i class="fas fa-file-alt"></i>
+                    </div>
+                    <div class="timeline-content">
+                        <h3>Abstract Submission Deadline</h3>
+                        <p class="timeline-date">29th November 2025</p>
+                    </div>
+                </div>
+                <div class="timeline-item" data-aos="fade-left">
+                    <div class="timeline-icon">
+                        <i class="fas fa-check-circle"></i>
+                    </div>
+                    <div class="timeline-content">
+                        <h3>Acceptance Intimation</h3>
+                        <p class="timeline-date">30th November 2025</p>
+                    </div>
+                </div>
+                <div class="timeline-item" data-aos="fade-right">
+                    <div class="timeline-icon">
+                        <i class="fas fa-user-check"></i>
+                    </div>
+                    <div class="timeline-content">
+                        <h3>Registration Deadline</h3>
+                        <p class="timeline-date">15th December 2025</p>
+                    </div>
+                </div>
+                <div class="timeline-item" data-aos="fade-left">
+                    <div class="timeline-icon">
+                        <i class="fas fa-chalkboard-teacher"></i>
+                    </div>
+                    <div class="timeline-content">
+                        <h3>Pre-Conference Workshop</h3>
+                        <p class="timeline-date">15th January 2026</p>
+                    </div>
+                </div>
+                <div class="timeline-item highlight" data-aos="fade-right">
+                    <div class="timeline-icon">
+                        <i class="fas fa-calendar-check"></i>
+                    </div>
+                    <div class="timeline-content">
+                        <h3>Conference Dates</h3>
+                        <p class="timeline-date">16-17 January 2026</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Registration Section -->
+    <section class="section registration-section" id="registration">
+        <div class="container">
+            <div class="section-header" data-aos="fade-up">
+                <h2 class="section-title">Registration Fee</h2>
+                <div class="section-divider"></div>
+            </div>
+            
+            <div class="registration-toggle" data-aos="fade-up">
+                <button class="toggle-btn active" onclick="switchPricing('early')">Early Bird Registration</button>
+                <button class="toggle-btn" onclick="switchPricing('regular')">Regular Registration</button>
+            </div>
+
+            <div class="pricing-grid" id="earlyBirdPricing">
+                <div class="pricing-card featured" data-aos="fade-up" data-aos-delay="100">
+                    <div class="pricing-badge">Popular</div>
+                    <div class="pricing-icon">
+                        <i class="fas fa-globe-asia"></i>
+                    </div>
+                    <h3>International Delegate</h3>
+                    <div class="price">
+                        <span class="currency">€</span>
+                        <span class="amount">300</span>
+                    </div>
+                    <ul class="pricing-features">
+                        <li><i class="fas fa-check"></i> Conference Kit</li>
+                        <li><i class="fas fa-check"></i> Complimentary Meals</li>
+                        <li><i class="fas fa-check"></i> Boat Cruise on Vembanad Lake</li>
+                        <li><i class="fas fa-check"></i> Traditional Kerala Cultural Programs</li>
+                        <li><i class="fas fa-check"></i> Conference Proceedings</li>
+                    </ul>
+                    <a href="#contact" class="btn btn-primary">Register Now</a>
+                </div>
+
+                <div class="pricing-card" data-aos="fade-up" data-aos-delay="200">
+                    <div class="pricing-icon">
+                        <i class="fas fa-user-graduate"></i>
+                    </div>
+                    <h3>International Student</h3>
+                    <div class="price">
+                        <span class="currency">€</span>
+                        <span class="amount">230</span>
+                    </div>
+                    <ul class="pricing-features">
+                        <li><i class="fas fa-check"></i> Conference Kit</li>
+                        <li><i class="fas fa-check"></i> Complimentary Meals</li>
+                        <li><i class="fas fa-check"></i> Boat Cruise on Vembanad Lake</li>
+                        <li><i class="fas fa-check"></i> Traditional Kerala Cultural Programs</li>
+                        <li><i class="fas fa-check"></i> Conference Proceedings</li>
+                    </ul>
+                    <a href="#contact" class="btn btn-secondary">Register Now</a>
+                </div>
+
+                <div class="pricing-card" data-aos="fade-up" data-aos-delay="300">
+                    <div class="pricing-icon">
+                        <i class="fas fa-flag-india"></i>
+                    </div>
+                    <h3>Indian Delegate</h3>
+                    <div class="price">
+                        <span class="currency">₹</span>
+                        <span class="amount">4000</span>
+                    </div>
+                    <ul class="pricing-features">
+                        <li><i class="fas fa-check"></i> Conference Kit</li>
+                        <li><i class="fas fa-check"></i> Complimentary Meals</li>
+                        <li><i class="fas fa-check"></i> Boat Cruise on Vembanad Lake</li>
+                        <li><i class="fas fa-check"></i> Traditional Kerala Cultural Programs</li>
+                        <li><i class="fas fa-check"></i> Conference Proceedings</li>
+                    </ul>
+                    <a href="#contact" class="btn btn-secondary">Register Now</a>
+                </div>
+
+                <div class="pricing-card" data-aos="fade-up" data-aos-delay="400">
+                    <div class="pricing-icon">
+                        <i class="fas fa-graduation-cap"></i>
+                    </div>
+                    <h3>Indian Student</h3>
+                    <div class="price">
+                        <span class="currency">₹</span>
+                        <span class="amount">2000</span>
+                    </div>
+                    <ul class="pricing-features">
+                        <li><i class="fas fa-check"></i> Conference Kit</li>
+                        <li><i class="fas fa-check"></i> Complimentary Meals</li>
+                        <li><i class="fas fa-check"></i> Boat Cruise on Vembanad Lake</li>
+                        <li><i class="fas fa-check"></i> Traditional Kerala Cultural Programs</li>
+                        <li><i class="fas fa-check"></i> Conference Proceedings</li>
+                    </ul>
+                    <a href="#contact" class="btn btn-secondary">Register Now</a>
+                </div>
+            </div>
+
+            <div class="pricing-grid hidden" id="regularPricing">
+                <div class="pricing-card featured" data-aos="fade-up" data-aos-delay="100">
+                    <div class="pricing-icon">
+                        <i class="fas fa-globe-asia"></i>
+                    </div>
+                    <h3>International Delegate</h3>
+                    <div class="price">
+                        <span class="currency">€</span>
+                        <span class="amount">400</span>
+                    </div>
+                    <ul class="pricing-features">
+                        <li><i class="fas fa-check"></i> Conference Kit</li>
+                        <li><i class="fas fa-check"></i> Complimentary Meals</li>
+                        <li><i class="fas fa-check"></i> Boat Cruise on Vembanad Lake</li>
+                        <li><i class="fas fa-check"></i> Traditional Kerala Cultural Programs</li>
+                        <li><i class="fas fa-check"></i> Conference Proceedings</li>
+                    </ul>
+                    <a href="#contact" class="btn btn-primary">Register Now</a>
+                </div>
+
+                <div class="pricing-card" data-aos="fade-up" data-aos-delay="200">
+                    <div class="pricing-icon">
+                        <i class="fas fa-user-graduate"></i>
+                    </div>
+                    <h3>International Student</h3>
+                    <div class="price">
+                        <span class="currency">€</span>
+                        <span class="amount">300</span>
+                    </div>
+                    <ul class="pricing-features">
+                        <li><i class="fas fa-check"></i> Conference Kit</li>
+                        <li><i class="fas fa-check"></i> Complimentary Meals</li>
+                        <li><i class="fas fa-check"></i> Boat Cruise on Vembanad Lake</li>
+                        <li><i class="fas fa-check"></i> Traditional Kerala Cultural Programs</li>
+                        <li><i class="fas fa-check"></i> Conference Proceedings</li>
+                    </ul>
+                    <a href="#contact" class="btn btn-secondary">Register Now</a>
+                </div>
+
+                <div class="pricing-card" data-aos="fade-up" data-aos-delay="300">
+                    <div class="pricing-icon">
+                        <i class="fas fa-flag-india"></i>
+                    </div>
+                    <h3>Indian Delegate</h3>
+                    <div class="price">
+                        <span class="currency">₹</span>
+                        <span class="amount">6000</span>
+                    </div>
+                    <ul class="pricing-features">
+                        <li><i class="fas fa-check"></i> Conference Kit</li>
+                        <li><i class="fas fa-check"></i> Complimentary Meals</li>
+                        <li><i class="fas fa-check"></i> Boat Cruise on Vembanad Lake</li>
+                        <li><i class="fas fa-check"></i> Traditional Kerala Cultural Programs</li>
+                        <li><i class="fas fa-check"></i> Conference Proceedings</li>
+                    </ul>
+                    <a href="#contact" class="btn btn-secondary">Register Now</a>
+                </div>
+
+                <div class="pricing-card" data-aos="fade-up" data-aos-delay="400">
+                    <div class="pricing-icon">
+                        <i class="fas fa-graduation-cap"></i>
+                    </div>
+                    <h3>Indian Student</h3>
+                    <div class="price">
+                        <span class="currency">₹</span>
+                        <span class="amount">3000</span>
+                    </div>
+                    <ul class="pricing-features">
+                        <li><i class="fas fa-check"></i> Conference Kit</li>
+                        <li><i class="fas fa-check"></i> Complimentary Meals</li>
+                        <li><i class="fas fa-check"></i> Boat Cruise on Vembanad Lake</li>
+                        <li><i class="fas fa-check"></i> Traditional Kerala Cultural Programs</li>
+                        <li><i class="fas fa-check"></i> Conference Proceedings</li>
+                    </ul>
+                    <a href="#contact" class="btn btn-secondary">Register Now</a>
+                </div>
+            </div>
+
+            <div class="additional-fees" data-aos="fade-up">
+                <h3><i class="fas fa-user-plus"></i> Accompanying Person</h3>
+                <div class="fee-grid">
+                    <div class="fee-item">
+                        <span>International</span>
+                        <strong>€ 275 (Early Bird) / € 300 (Regular)</strong>
+                    </div>
+                    <div class="fee-item">
+                        <span>Indian</span>
+                        <strong>₹ 2000 (Early Bird) / ₹ 2500 (Regular)</strong>
+                    </div>
+                </div>
+            </div>
+
+            <div class="industrial-delegate" data-aos="fade-up">
+                <h3><i class="fas fa-industry"></i> Industrial Delegate</h3>
+                <p class="fee-amount">€ 4000 / ₹ 7000</p>
+            </div>
+
+            <div class="benefits-note" data-aos="fade-up">
+                <div class="note-icon">
+                    <i class="fas fa-gift"></i>
+                </div>
+                <div class="note-content">
+                    <h4>What's Included</h4>
+                    <p>As a registered delegate, you'll receive a conference kit, complimentary meals, a boat cruise on Vembanad Lake, and a conference banquet featuring traditional Kerala cultural programs. In the case of foreign participants, registration fee covers accommodation also.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Abstract Submission Section -->
+    <section class="section submission-section" id="submission">
+        <div class="container">
+            <div class="section-header" data-aos="fade-up">
+                <h2 class="section-title">Abstract Submission</h2>
+                <div class="section-divider"></div>
+            </div>
+            <div class="submission-content">
+                <div class="submission-info" data-aos="fade-right">
+                    <h3>Submission Guidelines</h3>
+                    <div class="guideline-item">
+                        <i class="fas fa-calendar-check"></i>
+                        <div>
+                            <h4>Deadline</h4>
+                            <p>Submit your abstract by 29th November 2025</p>
+                        </div>
+                    </div>
+                    <div class="guideline-item">
+                        <i class="fas fa-file-alt"></i>
+                        <div>
+                            <h4>Format</h4>
+                            <p>Maximum 300 words, structured abstract with objectives, methods, results, and conclusions</p>
+                        </div>
+                    </div>
+                    <div class="guideline-item">
+                        <i class="fas fa-check-circle"></i>
+                        <div>
+                            <h4>Acceptance</h4>
+                            <p>Notification of acceptance will be sent by 30th November 2025</p>
+                        </div>
+                    </div>
+                    <div class="guideline-item">
+                        <i class="fas fa-trophy"></i>
+                        <div>
+                            <h4>Presentation Types</h4>
+                            <p>Oral presentations and poster sessions available</p>
+                        </div>
+                    </div>
+                    
+                    <div class="submission-button-container">
+                        <a href="mailto:iccca@gmail.com" class="btn btn-primary btn-large">
+                            <i class="fas fa-paper-plane"></i> Submit Abstract via Email
+                        </a>
+                    </div>
+                </div>
+                <div class="submission-form" data-aos="fade-left">
+                    <form id="abstractForm" class="contact-form">
+                        <h3>Quick Submission Form</h3>
+                        <div class="form-group">
+                            <label for="name"><i class="fas fa-user"></i> Full Name *</label>
+                            <input type="text" id="name" name="name" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="email"><i class="fas fa-envelope"></i> Email Address *</label>
+                            <input type="email" id="email" name="email" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="affiliation"><i class="fas fa-university"></i> Affiliation *</label>
+                            <input type="text" id="affiliation" name="affiliation" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="category"><i class="fas fa-list"></i> Category *</label>
+                            <select id="category" name="category" required>
+                                <option value="">Select Category</option>
+                                <option value="heterogeneous">Heterogeneous Catalysis</option>
+                                <option value="homogeneous">Homogeneous Catalysis</option>
+                                <option value="biocatalysis">Biocatalysis</option>
+                                <option value="electrocatalysis">Electrocatalysis</option>
+                                <option value="photocatalysis">Photocatalysis</option>
+                                <option value="green">Green Catalysis</option>
+                                <option value="other">Other</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="title"><i class="fas fa-heading"></i> Abstract Title *</label>
+                            <input type="text" id="title" name="title" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="abstract"><i class="fas fa-file-alt"></i> Abstract (Max 300 words) *</label>
+                            <textarea id="abstract" name="abstract" rows="6" required></textarea>
+                            <span class="char-count">0 / 300 words</span>
+                        </div>
+                        <button type="submit" class="btn btn-primary btn-block">
+                            <i class="fas fa-paper-plane"></i> Submit Abstract
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Committee Section -->
+    <section class="section committee-section" id="committee">
+        <div class="container">
+            <div class="section-header" data-aos="fade-up">
+                <h2 class="section-title">Organizing Committee</h2>
+                <div class="section-divider"></div>
+            </div>
+            
+            <div class="committee-category">
+                <h3 data-aos="fade-up">Patron</h3>
+                <div class="committee-grid">
+                    <div class="committee-card" data-aos="fade-up" data-aos-delay="100">
+                        <div class="committee-avatar">
+                            <i class="fas fa-user-tie"></i>
+                        </div>
+                        <h4>Prof. (Dr.) C.T. Aravindakumar</h4>
+                        <p class="committee-role">Hon. Vice-Chancellor</p>
+                        <p class="committee-org">Mahatma Gandhi University</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="committee-category">
+                <h3 data-aos="fade-up">Chairman & Convenor</h3>
+                <div class="committee-grid">
+                    <div class="committee-card" data-aos="fade-up" data-aos-delay="100">
+                        <div class="committee-avatar">
+                            <i class="fas fa-user-tie"></i>
+                        </div>
+                        <h4>Prof. (Dr.) Nandakumar Kalarikkal</h4>
+                        <p class="committee-role">Hon. Director</p>
+                        <p class="committee-org">International Centre for Ultrafast Studies (ICUS)<br>Mahatma Gandhi University</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="committee-category">
+                <h3 data-aos="fade-up">Local Advisory Committee</h3>
+                <div class="committee-grid">
+                    <div class="committee-card" data-aos="fade-up" data-aos-delay="100">
+                        <div class="committee-avatar">
+                            <i class="fas fa-user"></i>
+                        </div>
+                        <h4>Prof. (Dr.) Sabu Thomas</h4>
+                        <p class="committee-role">Former Vice-Chancellor</p>
+                        <p class="committee-org">Mahatma Gandhi University</p>
+                    </div>
+                    <div class="committee-card" data-aos="fade-up" data-aos-delay="150">
+                        <div class="committee-avatar">
+                            <i class="fas fa-user"></i>
+                        </div>
+                        <h4>Hon. Director, IUCNN, SNSNT & SEM</h4>
+                        <p class="committee-org">Mahatma Gandhi University</p>
+                    </div>
+                    <div class="committee-card" data-aos="fade-up" data-aos-delay="200">
+                        <div class="committee-avatar">
+                            <i class="fas fa-user"></i>
+                        </div>
+                        <h4>Dr. Sreetala M S</h4>
+                        <p class="committee-role">Joint Director</p>
+                        <p class="committee-org">IUCNN & SNSNT, Mahatma Gandhi University</p>
+                    </div>
+                    <div class="committee-card" data-aos="fade-up" data-aos-delay="250">
+                        <div class="committee-avatar">
+                            <i class="fas fa-user"></i>
+                        </div>
+                        <h4>Dr. Subila K. B.</h4>
+                        <p class="committee-role">Joint Director</p>
+                        <p class="committee-org">AMMRC, Mahatma Gandhi University</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Venue Section -->
+    <section class="section venue-section">
+        <div class="container">
+            <div class="section-header" data-aos="fade-up">
+                <h2 class="section-title">Conference Venue</h2>
+                <div class="section-divider"></div>
+            </div>
+            <div class="venue-content">
+                <div class="venue-info" data-aos="fade-right">
+                    <h3><i class="fas fa-map-marker-alt"></i> School of Pure and Applied Physics</h3>
+                    <p class="venue-name">Mahatma Gandhi University</p>
+                    <p class="venue-location">PD Hills PO, Kottayam, Kerala, India</p>
+                    
+                    <div class="venue-feature">
+                        <i class="fas fa-hotel"></i>
+                        <div>
+                            <h4>Accommodation</h4>
+                            <p>Accommodation will be provided in the guest house for limited number of rooms on a first-come, first-served basis.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="venue-feature">
+                        <i class="fas fa-city"></i>
+                        <div>
+                            <h4>About Kottayam</h4>
+                            <p>Kottayam is a beautiful city in Kerala known for its scenic backwaters, lush greenery, and rich cultural heritage. It's often called the "Land of Letters, Legends and Latex."</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="venue-map" data-aos="fade-left">
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3934.5948486697234!2d76.56747931478258!3d9.559450493004644!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3b062ba53b2ef203%3A0x7c5f3c5c5c5c5c5c!2sMahatma%20Gandhi%20University!5e0!3m2!1sen!2sin!4v1234567890123!5m2!1sen!2sin" 
+                            width="100%" 
+                            height="450" 
+                            style="border:0;" 
+                            allowfullscreen="" 
+                            loading="lazy" 
+                            referrerpolicy="no-referrer-when-downgrade">
+                    </iframe>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="section contact-section" id="contact">
+        <div class="container">
+            <div class="section-header" data-aos="fade-up">
+                <h2 class="section-title">Contact & Payment Information</h2>
+                <div class="section-divider"></div>
+            </div>
+            <div class="contact-grid">
+                <div class="contact-card" data-aos="fade-up" data-aos-delay="100">
+                    <div class="contact-icon">
+                        <i class="fas fa-envelope"></i>
+                    </div>
+                    <h3>Email</h3>
+                    <p><a href="mailto:iccca@gmail.com">iccca@gmail.com</a></p>
+                </div>
+                <div class="contact-card" data-aos="fade-up" data-aos-delay="200">
+                    <div class="contact-icon">
+                        <i class="fas fa-globe"></i>
+                    </div>
+                    <h3>Website</h3>
+                    <p><a href="https://icus.mg.ac.in/iccca2026" target="_blank">icus.mg.ac.in/iccca2026</a></p>
+                    <p><a href="http://www.mgu.ac.in" target="_blank">www.mgu.ac.in</a></p>
+                </div>
+                <div class="contact-card" data-aos="fade-up" data-aos-delay="300">
+                    <div class="contact-icon">
+                        <i class="fas fa-map-marker-alt"></i>
+                    </div>
+                    <h3>Address</h3>
+                    <p>The Director<br>
+                    University Centre for Ultrafast Studies (ICUS)<br>
+                    Mahatma Gandhi University</p>
+                </div>
+            </div>
+
+            <div class="payment-info" data-aos="fade-up">
+                <h3><i class="fas fa-university"></i> Payment Details</h3>
+                <p class="payment-note">The conference registration can be sent in favour of:</p>
+                <div class="payment-details">
+                    <div class="payment-item">
+                        <strong>Beneficiary:</strong>
+                        <span>The Director, University Centre for Ultrafast Studies (ICUS), Mahatma Gandhi University</span>
+                    </div>
+                    <div class="payment-item">
+                        <strong>Account Number:</strong>
+                        <span>67174668610</span>
+                    </div>
+                    <div class="payment-item">
+                        <strong>IFSC Code:</strong>
+                        <span>SBIN0070660</span>
+                    </div>
+                    <div class="payment-item">
+                        <strong>Branch Code:</strong>
+                        <span>70660</span>
+                    </div>
+                    <div class="payment-item">
+                        <strong>Bank:</strong>
+                        <span>State Bank of India, MG University Campus, Kottayam</span>
+                    </div>
+                    <div class="payment-item">
+                        <strong>Address:</strong>
+                        <span>Code 686560, India (full address of the sending person should be included during monetary transfer)</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>ICCCA 2026</h3>
+                    <p>International Conference on Contemporary Catalysis and Applications</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-linkedin"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+                <div class="footer-section">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="#home">Home</a></li>
+                        <li><a href="#about">About</a></li>
+                        <li><a href="#scope">Scope</a></li>
+                        <li><a href="#registration">Registration</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Important</h4>
+                    <ul>
+                        <li><a href="#dates">Important Dates</a></li>
+                        <li><a href="#submission">Submit Abstract</a></li>
+                        <li><a href="#committee">Committee</a></li>
+                        <li><a href="#contact">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Contact</h4>
+                    <p><i class="fas fa-envelope"></i> iccca@gmail.com</p>
+                    <p><i class="fas fa-map-marker-alt"></i> Mahatma Gandhi University<br>Kottayam, Kerala, India</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 ICCCA. All rights reserved. | Organized by ICUS, Mahatma Gandhi University</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scroll to Top Button -->
+    <button class="scroll-top" id="scrollTop">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+
+    <script src="script.js"></script>
+</body>
+</html>
+
