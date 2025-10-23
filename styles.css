@@ -1447,52 +1447,107 @@ body {
 
 /* Responsive Design */
 @media (max-width: 968px) {
+    .container {
+        padding: 0 15px;
+    }
+
     .nav-toggle {
         display: flex;
+        min-width: 44px;
+        min-height: 44px;
     }
 
     .nav-menu {
-        position: absolute;
-        top: 100%;
+        position: fixed;
+        top: 80px;
         left: 0;
         right: 0;
+        bottom: 0;
         background: var(--white);
         flex-direction: column;
-        padding: 20px;
+        padding: 30px 20px;
         box-shadow: var(--shadow-lg);
-        transform: translateY(-100%);
+        transform: translateX(-100%);
         opacity: 0;
         pointer-events: none;
         transition: var(--transition);
+        overflow-y: auto;
+        z-index: 999;
     }
 
     .nav-menu.active {
-        transform: translateY(0);
+        transform: translateX(0);
         opacity: 1;
         pointer-events: all;
     }
 
+    .nav-link {
+        padding: 15px 20px;
+        font-size: 16px;
+        border-bottom: 1px solid #f0f0f0;
+        min-height: 48px;
+    }
+
+    .hero {
+        min-height: 100vh;
+        padding: 80px 0 40px;
+    }
+
     .hero-title {
-        font-size: 2.5rem;
+        font-size: 2rem;
+        line-height: 1.3;
     }
 
     .hero-subtitle {
-        font-size: 1.5rem;
+        font-size: 1.3rem;
     }
 
     .hero-details {
         flex-direction: column;
-        align-items: center;
+        align-items: stretch;
+        gap: 15px;
+    }
+
+    .detail-item {
+        justify-content: center;
+        padding: 15px 20px;
+        font-size: 14px;
+    }
+
+    .hero-buttons {
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    .btn {
+        width: 100%;
+        min-height: 48px;
+        justify-content: center;
     }
 
     .about-content,
     .submission-content,
     .venue-content {
         grid-template-columns: 1fr;
+        gap: 30px;
     }
 
     .about-stats {
         grid-template-columns: repeat(2, 1fr);
+        gap: 15px;
+    }
+
+    .stat-card {
+        padding: 25px 20px;
+    }
+
+    .scope-grid {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+
+    .scope-card {
+        padding: 25px 20px;
     }
 
     .timeline::before {
@@ -1507,6 +1562,12 @@ body {
     .timeline-icon {
         left: 20px;
         transform: none;
+        width: 50px;
+        height: 50px;
+    }
+
+    .timeline-icon i {
+        font-size: 20px;
     }
 
     .timeline-item:hover .timeline-icon {
@@ -1515,45 +1576,26 @@ body {
 
     .timeline-item .timeline-content {
         text-align: left !important;
-        padding: 25px !important;
-    }
-}
-
-@media (max-width: 640px) {
-    .hero-title {
-        font-size: 2rem;
-    }
-
-    .hero-subtitle {
-        font-size: 1.2rem;
-    }
-
-    .hero-buttons {
-        flex-direction: column;
-    }
-
-    .btn {
-        width: 100%;
-    }
-
-    .section {
-        padding: 50px 0;
-    }
-
-    .section-title {
-        font-size: 2rem;
-    }
-
-    .scope-grid {
-        grid-template-columns: 1fr;
+        padding: 20px !important;
     }
 
     .pricing-grid {
         grid-template-columns: 1fr;
+        gap: 25px;
     }
 
-    .about-stats {
-        grid-template-columns: 1fr;
+    .pricing-card {
+        padding: 35px 25px;
+    }
+
+    .registration-toggle {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .toggle-btn {
+        width: 100%;
+        min-height: 48px;
     }
 
     .committee-grid {
@@ -1567,6 +1609,488 @@ body {
     .fee-grid {
         grid-template-columns: 1fr;
     }
+
+    .footer-content {
+        grid-template-columns: 1fr;
+        gap: 30px;
+    }
+
+    .announcement-banner p {
+        font-size: 13px;
+        padding-right: 40px;
+    }
+
+    .close-banner {
+        min-width: 44px;
+        min-height: 44px;
+    }
+}
+
+@media (max-width: 640px) {
+    .container {
+        padding: 0 15px;
+    }
+
+    .brand-text {
+        font-size: 18px;
+    }
+
+    .logo {
+        width: 40px;
+        height: 40px;
+    }
+
+    .hero {
+        min-height: auto;
+        padding: 60px 0 30px;
+    }
+
+    .hero-content {
+        padding: 20px 15px;
+    }
+
+    .hero-badge {
+        font-size: 12px;
+        padding: 8px 20px;
+        margin-bottom: 20px;
+    }
+
+    .hero-title {
+        font-size: 1.75rem;
+        margin-bottom: 15px;
+    }
+
+    .hero-subtitle {
+        font-size: 1.1rem;
+        margin-bottom: 20px;
+    }
+
+    .detail-item {
+        font-size: 13px;
+        padding: 12px 15px;
+    }
+
+    .detail-item i {
+        font-size: 16px;
+    }
+
+    .hero-buttons {
+        flex-direction: column;
+        gap: 12px;
+    }
+
+    .btn {
+        width: 100%;
+        padding: 14px 25px;
+        font-size: 15px;
+    }
+
+    .scroll-indicator {
+        display: none;
+    }
+
+    .section {
+        padding: 40px 0;
+    }
+
+    .section-header {
+        margin-bottom: 35px;
+    }
+
+    .section-title {
+        font-size: 1.75rem;
+        margin-bottom: 12px;
+    }
+
+    .section-description {
+        font-size: 15px;
+    }
+
+    .about-text .lead {
+        font-size: 17px;
+    }
+
+    .about-text p {
+        font-size: 15px;
+    }
+
+    .feature-list li {
+        font-size: 14px;
+        padding: 10px 0;
+    }
+
+    .about-stats {
+        grid-template-columns: 1fr;
+        gap: 15px;
+    }
+
+    .stat-card {
+        padding: 25px;
+    }
+
+    .stat-card h3 {
+        font-size: 2rem;
+    }
+
+    .scope-grid {
+        grid-template-columns: 1fr;
+        gap: 15px;
+    }
+
+    .scope-card {
+        padding: 25px 20px;
+    }
+
+    .scope-icon {
+        width: 70px;
+        height: 70px;
+        margin-bottom: 15px;
+    }
+
+    .scope-icon i {
+        font-size: 30px;
+    }
+
+    .scope-card h3 {
+        font-size: 16px;
+        margin-bottom: 10px;
+    }
+
+    .scope-card p {
+        font-size: 13px;
+    }
+
+    .timeline-content h3 {
+        font-size: 16px;
+    }
+
+    .timeline-date {
+        font-size: 14px;
+    }
+
+    .pricing-grid {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+
+    .pricing-card {
+        padding: 30px 20px;
+    }
+
+    .pricing-card h3 {
+        font-size: 18px;
+    }
+
+    .amount {
+        font-size: 2.5rem;
+    }
+
+    .pricing-features li {
+        font-size: 13px;
+    }
+
+    .additional-fees,
+    .industrial-delegate {
+        padding: 25px 20px;
+    }
+
+    .fee-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .benefits-note {
+        flex-direction: column;
+        padding: 25px 20px;
+        gap: 15px;
+    }
+
+    .submission-form {
+        padding: 30px 20px;
+    }
+
+    .guideline-item {
+        flex-direction: column;
+        text-align: center;
+        padding: 20px 15px;
+    }
+
+    .committee-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .committee-card {
+        padding: 25px 20px;
+    }
+
+    .venue-feature {
+        flex-direction: column;
+        text-align: center;
+        padding: 20px 15px;
+    }
+
+    .contact-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .contact-card {
+        padding: 30px 20px;
+    }
+
+    .payment-info {
+        padding: 30px 20px;
+    }
+
+    .payment-details {
+        padding: 20px 15px;
+    }
+
+    .payment-item {
+        flex-direction: column;
+        gap: 5px;
+        text-align: left;
+    }
+
+    .payment-item strong {
+        min-width: auto;
+    }
+
+    .footer {
+        padding: 40px 0 15px;
+    }
+
+    .footer-content {
+        grid-template-columns: 1fr;
+        gap: 25px;
+        text-align: center;
+    }
+
+    .footer-section ul {
+        text-align: center;
+    }
+
+    .social-links {
+        justify-content: center;
+    }
+
+    .scroll-top {
+        width: 45px;
+        height: 45px;
+        bottom: 20px;
+        right: 20px;
+        font-size: 18px;
+    }
+
+    /* Improve form inputs for mobile */
+    .contact-form input,
+    .contact-form select,
+    .contact-form textarea {
+        font-size: 16px; /* Prevent zoom on iOS */
+        padding: 14px 15px;
+    }
+}
+
+/* Extra small devices */
+@media (max-width: 375px) {
+    .hero-title {
+        font-size: 1.5rem;
+    }
+
+    .hero-subtitle {
+        font-size: 1rem;
+    }
+
+    .section-title {
+        font-size: 1.5rem;
+    }
+
+    .brand-text {
+        font-size: 16px;
+    }
+
+    .detail-item span {
+        font-size: 12px;
+    }
+}
+
+/* Tablet landscape specific */
+@media (min-width: 641px) and (max-width: 968px) {
+    .about-stats {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .scope-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .pricing-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .committee-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .contact-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+/* Mobile-specific touch optimizations */
+@media (hover: none) and (pointer: coarse) {
+    /* Better touch targets */
+    .btn,
+    button,
+    .nav-link,
+    a {
+        min-height: 44px;
+        min-width: 44px;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+    }
+    
+    /* Remove hover effects on touch devices */
+    .scope-card:hover,
+    .pricing-card:hover,
+    .committee-card:hover,
+    .contact-card:hover {
+        transform: none;
+    }
+    
+    /* Active states for touch */
+    .btn:active {
+        transform: scale(0.98);
+        opacity: 0.9;
+    }
+    
+    .scope-card:active,
+    .pricing-card:active {
+        transform: scale(0.98);
+    }
+    
+    /* Improve tap highlight color */
+    * {
+        -webkit-tap-highlight-color: rgba(26, 71, 42, 0.1);
+    }
+    
+    /* Disable selection on interactive elements */
+    .btn,
+    button,
+    .nav-link {
+        -webkit-user-select: none;
+        user-select: none;
+    }
+}
+
+/* Focus styles for accessibility */
+.form-group.focused input,
+.form-group.focused select,
+.form-group.focused textarea {
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 4px rgba(26, 71, 42, 0.15);
+}
+
+/* Smooth scroll for all browsers */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Prevent horizontal scroll */
+body {
+    overflow-x: hidden;
+    max-width: 100vw;
+}
+
+/* Optimize for mobile performance */
+@media (max-width: 968px) {
+    * {
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+    }
+    
+    /* Reduce motion for better performance */
+    @media (prefers-reduced-motion: reduce) {
+        *,
+        *::before,
+        *::after {
+            animation-duration: 0.01ms !important;
+            animation-iteration-count: 1 !important;
+            transition-duration: 0.01ms !important;
+        }
+    }
+}
+
+/* Safe area insets for notched devices */
+@supports (padding: max(0px)) {
+    body {
+        padding-left: max(0px, env(safe-area-inset-left));
+        padding-right: max(0px, env(safe-area-inset-right));
+    }
+    
+    .navbar {
+        padding-left: max(0px, env(safe-area-inset-left));
+        padding-right: max(0px, env(safe-area-inset-right));
+    }
+    
+    .footer {
+        padding-bottom: max(20px, env(safe-area-inset-bottom));
+    }
+}
+
+/* Loading skeleton for images */
+img {
+    background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%);
+    background-size: 200% 100%;
+    animation: loading 1.5s infinite;
+}
+
+img[src] {
+    animation: none;
+    background: none;
+}
+
+@keyframes loading {
+    0% { background-position: 200% 0; }
+    100% { background-position: -200% 0; }
+}
+
+/* Better text rendering on mobile */
+@media (max-width: 640px) {
+    body {
+        text-rendering: optimizeLegibility;
+        -webkit-font-smoothing: antialiased;
+    }
+}
+
+/* Prevent zoom on input focus (iOS) */
+@media (max-width: 640px) {
+    input[type="text"],
+    input[type="email"],
+    input[type="tel"],
+    select,
+    textarea {
+        font-size: 16px !important;
+    }
+}
+
+/* Full-screen mobile menu overlay */
+@media (max-width: 968px) {
+    .nav-menu.active::before {
+        content: '';
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: rgba(0, 0, 0, 0.5);
+        z-index: -1;
+        animation: fadeIn 0.3s ease;
+    }
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
 }
 
 /* AOS Animation Fallback */

@@ -11,10 +11,30 @@ window.addEventListener('scroll', () => {
 // Mobile menu toggle
 const navToggle = document.getElementById('navToggle');
 const navMenu = document.getElementById('navMenu');
+let menuOpen = false;
 
-navToggle.addEventListener('click', () => {
+navToggle.addEventListener('click', (e) => {
+    e.stopPropagation();
+    menuOpen = !menuOpen;
     navMenu.classList.toggle('active');
     navToggle.classList.toggle('active');
+    
+    // Prevent body scroll when menu is open
+    if (menuOpen) {
+        document.body.style.overflow = 'hidden';
+    } else {
+        document.body.style.overflow = '';
+    }
+});
+
+// Close mobile menu when clicking outside
+document.addEventListener('click', (e) => {
+    if (menuOpen && !navMenu.contains(e.target) && !navToggle.contains(e.target)) {
+        navMenu.classList.remove('active');
+        navToggle.classList.remove('active');
+        menuOpen = false;
+        document.body.style.overflow = '';
+    }
 });
 
 // Close mobile menu when clicking on a link
@@ -22,7 +42,23 @@ document.querySelectorAll('.nav-link').forEach(link => {
     link.addEventListener('click', () => {
         navMenu.classList.remove('active');
         navToggle.classList.remove('active');
+        menuOpen = false;
+        document.body.style.overflow = '';
     });
+});
+
+// Handle window resize
+let resizeTimer;
+window.addEventListener('resize', () => {
+    clearTimeout(resizeTimer);
+    resizeTimer = setTimeout(() => {
+        if (window.innerWidth > 968) {
+            navMenu.classList.remove('active');
+            navToggle.classList.remove('active');
+            menuOpen = false;
+            document.body.style.overflow = '';
+        }
+    }, 250);
 });
 
 // Smooth scrolling for navigation links
@@ -341,6 +377,179 @@ if (footerYear) {
     footerYear.innerHTML = footerYear.innerHTML.replace('2026', currentYear);
 }
 
+// Mobile-specific optimizations
+function isMobile() {
+    return window.innerWidth <= 768 || /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
+}
+
+// Optimize animations for mobile
+if (isMobile()) {
+    // Disable parallax on mobile for better performance
+    const heroContent = document.querySelector('.hero-content');
+    if (heroContent) {
+        heroContent.style.transform = 'none';
+        heroContent.style.opacity = '1';
+    }
+    
+    // Reduce animation complexity on mobile
+    document.documentElement.style.setProperty('--transition', 'all 0.2s ease');
+}
+
+// Add touch-friendly swipe to close menu
+let touchStartX = 0;
+let touchEndX = 0;
+
+navMenu.addEventListener('touchstart', (e) => {
+    touchStartX = e.changedTouches[0].screenX;
+}, { passive: true });
+
+navMenu.addEventListener('touchend', (e) => {
+    touchEndX = e.changedTouches[0].screenX;
+    handleSwipe();
+}, { passive: true });
+
+function handleSwipe() {
+    if (touchStartX - touchEndX > 50) {
+        // Swipe left - close menu
+        if (menuOpen) {
+            navMenu.classList.remove('active');
+            navToggle.classList.remove('active');
+            menuOpen = false;
+            document.body.style.overflow = '';
+        }
+    }
+}
+
+// Lazy load images
+if ('IntersectionObserver' in window) {
+    const imageObserver = new IntersectionObserver((entries, observer) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                const img = entry.target;
+                if (img.dataset.src) {
+                    img.src = img.dataset.src;
+                    img.removeAttribute('data-src');
+                    observer.unobserve(img);
+                }
+            }
+        });
+    });
+
+    document.querySelectorAll('img[data-src]').forEach(img => {
+        imageObserver.observe(img);
+    });
+}
+
+// Add loading attribute to images for native lazy loading
+document.querySelectorAll('img').forEach(img => {
+    if (!img.hasAttribute('loading')) {
+        img.setAttribute('loading', 'lazy');
+    }
+});
+
+// Improve form experience on mobile
+const formInputs = document.querySelectorAll('input, select, textarea');
+formInputs.forEach(input => {
+    // Add touch-friendly focus
+    input.addEventListener('focus', function() {
+        this.parentElement.classList.add('focused');
+        
+        // Scroll input into view on mobile
+        if (isMobile()) {
+            setTimeout(() => {
+                this.scrollIntoView({ behavior: 'smooth', block: 'center' });
+            }, 300);
+        }
+    });
+    
+    input.addEventListener('blur', function() {
+        this.parentElement.classList.remove('focused');
+    });
+});
+
+// Prevent double-tap zoom on buttons
+const buttons = document.querySelectorAll('button, .btn');
+buttons.forEach(button => {
+    button.addEventListener('touchend', (e) => {
+        e.preventDefault();
+        button.click();
+    }, { passive: false });
+});
+
+// Add haptic feedback for touch interactions (if supported)
+function addHapticFeedback() {
+    if ('vibrate' in navigator) {
+        const interactiveElements = document.querySelectorAll('button, .btn, .nav-link, .pricing-card');
+        interactiveElements.forEach(element => {
+            element.addEventListener('touchstart', () => {
+                navigator.vibrate(10);
+            }, { passive: true });
+        });
+    }
+}
+
+if (isMobile()) {
+    addHapticFeedback();
+}
+
+// Optimize scroll performance
+let ticking = false;
+let lastScrollY = window.pageYOffset;
+
+function optimizedScroll() {
+    lastScrollY = window.pageYOffset;
+    
+    if (!ticking) {
+        window.requestAnimationFrame(() => {
+            // Your scroll-based animations here
+            ticking = false;
+        });
+        ticking = true;
+    }
+}
+
+window.addEventListener('scroll', optimizedScroll, { passive: true });
+
+// Add smooth scroll behavior for iOS
+if (/iPhone|iPad|iPod/i.test(navigator.userAgent)) {
+    document.documentElement.style.setProperty('-webkit-overflow-scrolling', 'touch');
+}
+
+// Performance monitoring
+if (isMobile()) {
+    // Reduce unnecessary repaints on mobile
+    const reducedMotionQuery = window.matchMedia('(prefers-reduced-motion: reduce)');
+    if (reducedMotionQuery.matches) {
+        document.documentElement.style.setProperty('--transition', 'none');
+    }
+}
+
+// Add orientation change handler
+window.addEventListener('orientationchange', () => {
+    // Close menu on orientation change
+    if (menuOpen) {
+        navMenu.classList.remove('active');
+        navToggle.classList.remove('active');
+        menuOpen = false;
+        document.body.style.overflow = '';
+    }
+    
+    // Refresh layout after orientation change
+    setTimeout(() => {
+        window.scrollTo(0, window.pageYOffset);
+    }, 200);
+});
+
+// Network-aware loading
+if ('connection' in navigator) {
+    const connection = navigator.connection;
+    if (connection.effectiveType === '2g' || connection.saveData) {
+        // Disable heavy animations on slow connections
+        document.documentElement.style.setProperty('--transition', 'all 0.1s ease');
+    }
+}
+
 console.log('ICCCA 2026 Website Loaded Successfully!');
 console.log('For any queries, please contact: iccca@gmail.com');
+console.log('Mobile Optimizations:', isMobile() ? 'Enabled' : 'Disabled');
 
