@@ -549,6 +549,77 @@ if ('connection' in navigator) {
     }
 }
 
+// Countdown Timer for Deadlines
+function updateCountdown() {
+    const countdownElements = document.querySelectorAll('.countdown');
+    
+    countdownElements.forEach(element => {
+        const deadline = element.getAttribute('data-deadline');
+        if (!deadline) return;
+        
+        const deadlineDate = new Date(deadline).getTime();
+        const now = new Date().getTime();
+        const distance = deadlineDate - now;
+        
+        if (distance < 0) {
+            element.innerHTML = '<span style="color: #ff6b6b;">⚠️ Deadline Passed</span>';
+            return;
+        }
+        
+        const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+        const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+        const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+        const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+        
+        let timeString = '';
+        
+        if (days > 30) {
+            const months = Math.floor(days / 30);
+            timeString = `<strong>${months}</strong> month${months > 1 ? 's' : ''} left`;
+        } else if (days > 0) {
+            timeString = `<strong>${days}</strong> day${days > 1 ? 's' : ''} left`;
+        } else if (hours > 0) {
+            timeString = `<strong>${hours}</strong>h <strong>${minutes}</strong>m <strong>${seconds}</strong>s`;
+        } else if (minutes > 0) {
+            timeString = `<strong>${minutes}</strong>m <strong>${seconds}</strong>s`;
+        } else {
+            timeString = `<strong>${seconds}</strong>s`;
+        }
+        
+        element.innerHTML = timeString;
+    });
+}
+
+// Update countdown every second
+setInterval(updateCountdown, 1000);
+updateCountdown();
+
+// Add urgency indicator based on time left
+function checkUrgency() {
+    const countdownElements = document.querySelectorAll('.countdown');
+    countdownElements.forEach(element => {
+        const deadline = element.getAttribute('data-deadline');
+        if (!deadline) return;
+        
+        const deadlineDate = new Date(deadline).getTime();
+        const now = new Date().getTime();
+        const distance = deadlineDate - now;
+        const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+        
+        const deadlineItem = element.closest('.deadline-item');
+        if (deadlineItem) {
+            if (days <= 7) {
+                deadlineItem.style.animation = 'flashyGlow 0.8s infinite';
+                deadlineItem.style.border = '3px solid #ff6b6b';
+            } else if (days <= 30) {
+                deadlineItem.style.animation = 'flashyGlow 2s infinite';
+            }
+        }
+    });
+}
+
+checkUrgency();
+
 console.log('ICCCA 2026 Website Loaded Successfully!');
 console.log('For any queries, please contact: iccca@gmail.com');
 console.log('Mobile Optimizations:', isMobile() ? 'Enabled' : 'Disabled');
