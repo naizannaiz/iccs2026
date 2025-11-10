@@ -192,7 +192,7 @@ if (abstractForm) {
             `Abstract:\n${data.abstract}`
         );
         
-        window.location.href = `mailto:iccca@gmail.com?subject=${subject}&body=${body}`;
+        window.location.href = `mailto:iccca2026@gmail.com?subject=${subject}&body=${body}`;
         
         // Show success message
         alert('Thank you for your submission! Your email client will open with the abstract form filled in. Please send the email to complete your submission.');
@@ -609,10 +609,10 @@ function checkUrgency() {
         const deadlineItem = element.closest('.deadline-item');
         if (deadlineItem) {
             if (days <= 7) {
-                deadlineItem.style.animation = 'flashyGlow 0.8s infinite';
-                deadlineItem.style.border = '3px solid #ff6b6b';
+                deadlineItem.style.border = '2px solid rgba(255, 255, 255, 0.4)';
+                deadlineItem.style.boxShadow = '0 12px 35px rgba(26, 71, 42, 0.4), 0 0 20px rgba(255, 255, 255, 0.2)';
             } else if (days <= 30) {
-                deadlineItem.style.animation = 'flashyGlow 2s infinite';
+                deadlineItem.style.border = '2px solid rgba(255, 255, 255, 0.3)';
             }
         }
     });
@@ -620,7 +620,84 @@ function checkUrgency() {
 
 checkUrgency();
 
+// Lightbox functionality for gallery
+let currentImageIndex = 0;
+const galleryImages = [
+    'place/IMG-20251102-WA0001.jpg',
+    'place/IMG-20251102-WA0002.jpg',
+    'place/IMG-20251102-WA0003.jpg',
+    'place/IMG-20251102-WA0004.jpg',
+    'place/IMG-20251102-WA0005.jpg',
+    'place/IMG-20251102-WA0006.jpg',
+    'place/IMG-20251102-WA0007.jpg',
+    'place/IMG-20251102-WA0008.jpg'
+];
+
+function openLightbox(index) {
+    currentImageIndex = index;
+    const lightbox = document.getElementById('lightbox');
+    const lightboxImage = document.getElementById('lightbox-image');
+    lightboxImage.src = galleryImages[index];
+    lightbox.classList.add('active');
+    document.body.style.overflow = 'hidden'; // Prevent background scrolling
+}
+
+function closeLightbox() {
+    const lightbox = document.getElementById('lightbox');
+    lightbox.classList.remove('active');
+    document.body.style.overflow = ''; // Restore scrolling
+}
+
+function changeImage(direction) {
+    currentImageIndex += direction;
+    
+    // Wrap around
+    if (currentImageIndex < 0) {
+        currentImageIndex = galleryImages.length - 1;
+    } else if (currentImageIndex >= galleryImages.length) {
+        currentImageIndex = 0;
+    }
+    
+    const lightboxImage = document.getElementById('lightbox-image');
+    lightboxImage.src = galleryImages[currentImageIndex];
+}
+
+// Close lightbox on Escape key
+document.addEventListener('keydown', function(e) {
+    const lightbox = document.getElementById('lightbox');
+    if (lightbox.classList.contains('active')) {
+        if (e.key === 'Escape') {
+            closeLightbox();
+        } else if (e.key === 'ArrowLeft') {
+            changeImage(-1);
+        } else if (e.key === 'ArrowRight') {
+            changeImage(1);
+        }
+    }
+});
+
+// Close lightbox when clicking on the background (set up after DOM loads)
+document.addEventListener('DOMContentLoaded', function() {
+    const lightbox = document.getElementById('lightbox');
+    if (lightbox) {
+        lightbox.addEventListener('click', function(e) {
+            // Only close if clicking directly on the lightbox background
+            if (e.target === this) {
+                closeLightbox();
+            }
+        });
+
+        // Prevent closing when clicking on image or controls
+        const lightboxContent = lightbox.querySelector('.lightbox-content');
+        if (lightboxContent) {
+            lightboxContent.addEventListener('click', function(e) {
+                e.stopPropagation();
+            });
+        }
+    }
+});
+
 console.log('ICCCA 2026 Website Loaded Successfully!');
-console.log('For any queries, please contact: iccca@gmail.com');
+console.log('For any queries, please contact: iccca2026@gmail.com');
 console.log('Mobile Optimizations:', isMobile() ? 'Enabled' : 'Disabled');
 
