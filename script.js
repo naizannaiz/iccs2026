@@ -1,12 +1,39 @@
-// Navbar scroll effect
+// Throttled scroll handler
+let isScrolling = false;
 window.addEventListener('scroll', () => {
-    const navbar = document.getElementById('navbar');
-    if (window.scrollY > 50) {
-        navbar.classList.add('scrolled');
-    } else {
-        navbar.classList.remove('scrolled');
+    if (!isScrolling) {
+        window.requestAnimationFrame(() => {
+            const navbar = document.getElementById('navbar');
+            if (window.scrollY > 50) {
+                navbar.classList.add('scrolled');
+            } else {
+                navbar.classList.remove('scrolled');
+            }
+
+            // Active navigation link highlighting
+            let current = '';
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                if (window.pageYOffset >= sectionTop - 150) {
+                    current = section.getAttribute('id');
+                }
+            });
+
+            navLinks.forEach(link => {
+                link.classList.remove('active');
+                if (link.getAttribute('href') === `#${current}`) {
+                    link.classList.add('active');
+                }
+            });
+
+            isScrolling = false;
+        });
+        isScrolling = true;
     }
-});
+}, { passive: true });
+
+const sections = document.querySelectorAll('.section, .hero');
+const navLinks = document.querySelectorAll('.nav-link');
 
 // Mobile menu toggle
 const navToggle = document.getElementById('navToggle');
@@ -18,7 +45,7 @@ navToggle.addEventListener('click', (e) => {
     menuOpen = !menuOpen;
     navMenu.classList.toggle('active');
     navToggle.classList.toggle('active');
-    
+
     // Prevent body scroll when menu is open
     if (menuOpen) {
         document.body.style.overflow = 'hidden';
@@ -76,28 +103,6 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     });
 });
 
-// Active navigation link highlighting
-const sections = document.querySelectorAll('.section, .hero');
-const navLinks = document.querySelectorAll('.nav-link');
-
-window.addEventListener('scroll', () => {
-    let current = '';
-    sections.forEach(section => {
-        const sectionTop = section.offsetTop;
-        const sectionHeight = section.clientHeight;
-        if (window.pageYOffset >= sectionTop - 150) {
-            current = section.getAttribute('id');
-        }
-    });
-
-    navLinks.forEach(link => {
-        link.classList.remove('active');
-        if (link.getAttribute('href') === `#${current}`) {
-            link.classList.add('active');
-        }
-    });
-});
-
 // Close announcement banner
 function closeBanner() {
     const banner = document.getElementById('announcementBanner');
@@ -149,12 +154,12 @@ scrollTopBtn.addEventListener('click', () => {
 const abstractTextarea = document.getElementById('abstract');
 if (abstractTextarea) {
     const charCount = abstractTextarea.nextElementSibling;
-    
-    abstractTextarea.addEventListener('input', function() {
+
+    abstractTextarea.addEventListener('input', function () {
         const text = this.value.trim();
         const words = text ? text.split(/\s+/).filter(word => word.length > 0).length : 0;
         charCount.textContent = `${words} / 300 words`;
-        
+
         if (words > 300) {
             charCount.style.color = 'red';
         } else {
@@ -166,21 +171,21 @@ if (abstractTextarea) {
 // Form submission handler
 const abstractForm = document.getElementById('abstractForm');
 if (abstractForm) {
-    abstractForm.addEventListener('submit', function(e) {
+    abstractForm.addEventListener('submit', function (e) {
         e.preventDefault();
-        
+
         const formData = new FormData(this);
         const data = Object.fromEntries(formData);
-        
+
         // Check word count
         const text = data.abstract.trim();
         const words = text ? text.split(/\s+/).filter(word => word.length > 0).length : 0;
-        
+
         if (words > 300) {
             alert('Abstract must not exceed 300 words. Current word count: ' + words);
             return;
         }
-        
+
         // Create mailto link with form data
         const subject = encodeURIComponent(`Abstract Submission: ${data.title}`);
         const body = encodeURIComponent(
@@ -191,12 +196,12 @@ if (abstractForm) {
             `Title: ${data.title}\n\n` +
             `Abstract:\n${data.abstract}`
         );
-        
+
         window.location.href = `mailto:iccca2026@gmail.com?subject=${subject}&body=${body}`;
-        
+
         // Show success message
         alert('Thank you for your submission! Your email client will open with the abstract form filled in. Please send the email to complete your submission.');
-        
+
         // Reset form
         this.reset();
         document.querySelector('.char-count').textContent = '0 / 300 words';
@@ -238,31 +243,31 @@ window.addEventListener('scroll', () => {
 
 // Add hover effect to pricing cards
 document.querySelectorAll('.pricing-card').forEach(card => {
-    card.addEventListener('mouseenter', function() {
+    card.addEventListener('mouseenter', function () {
         this.style.transform = 'translateY(-10px) scale(1.02)';
     });
-    
-    card.addEventListener('mouseleave', function() {
+
+    card.addEventListener('mouseleave', function () {
         this.style.transform = 'translateY(0) scale(1)';
     });
 });
 
 // Add click animation to buttons
 document.querySelectorAll('.btn').forEach(button => {
-    button.addEventListener('click', function(e) {
+    button.addEventListener('click', function (e) {
         const ripple = document.createElement('span');
         ripple.classList.add('ripple');
         this.appendChild(ripple);
-        
+
         const rect = this.getBoundingClientRect();
         const size = Math.max(rect.width, rect.height);
         const x = e.clientX - rect.left - size / 2;
         const y = e.clientY - rect.top - size / 2;
-        
+
         ripple.style.width = ripple.style.height = size + 'px';
         ripple.style.left = x + 'px';
         ripple.style.top = y + 'px';
-        
+
         setTimeout(() => ripple.remove(), 600);
     });
 });
@@ -271,7 +276,7 @@ document.querySelectorAll('.btn').forEach(button => {
 function animateCounter(element, target, duration = 2000) {
     let current = 0;
     const increment = target / (duration / 16);
-    
+
     const updateCounter = () => {
         current += increment;
         if (current < target) {
@@ -281,7 +286,7 @@ function animateCounter(element, target, duration = 2000) {
             element.textContent = target;
         }
     };
-    
+
     updateCounter();
 }
 
@@ -390,7 +395,7 @@ if (isMobile()) {
         heroContent.style.transform = 'none';
         heroContent.style.opacity = '1';
     }
-    
+
     // Reduce animation complexity on mobile
     document.documentElement.style.setProperty('--transition', 'all 0.2s ease');
 }
@@ -451,9 +456,9 @@ document.querySelectorAll('img').forEach(img => {
 const formInputs = document.querySelectorAll('input, select, textarea');
 formInputs.forEach(input => {
     // Add touch-friendly focus
-    input.addEventListener('focus', function() {
+    input.addEventListener('focus', function () {
         this.parentElement.classList.add('focused');
-        
+
         // Scroll input into view on mobile
         if (isMobile()) {
             setTimeout(() => {
@@ -461,8 +466,8 @@ formInputs.forEach(input => {
             }, 300);
         }
     });
-    
-    input.addEventListener('blur', function() {
+
+    input.addEventListener('blur', function () {
         this.parentElement.classList.remove('focused');
     });
 });
@@ -498,7 +503,7 @@ let lastScrollY = window.pageYOffset;
 
 function optimizedScroll() {
     lastScrollY = window.pageYOffset;
-    
+
     if (!ticking) {
         window.requestAnimationFrame(() => {
             // Your scroll-based animations here
@@ -533,7 +538,7 @@ window.addEventListener('orientationchange', () => {
         menuOpen = false;
         document.body.style.overflow = '';
     }
-    
+
     // Refresh layout after orientation change
     setTimeout(() => {
         window.scrollTo(0, window.pageYOffset);
@@ -552,27 +557,27 @@ if ('connection' in navigator) {
 // Countdown Timer for Deadlines
 function updateCountdown() {
     const countdownElements = document.querySelectorAll('.countdown');
-    
+
     countdownElements.forEach(element => {
         const deadline = element.getAttribute('data-deadline');
         if (!deadline) return;
-        
+
         const deadlineDate = new Date(deadline).getTime();
         const now = new Date().getTime();
         const distance = deadlineDate - now;
-        
+
         if (distance < 0) {
             element.innerHTML = '<span style="color: #ff6b6b;">⚠️ Deadline Passed</span>';
             return;
         }
-        
+
         const days = Math.floor(distance / (1000 * 60 * 60 * 24));
         const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
         const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
         const seconds = Math.floor((distance % (1000 * 60)) / 1000);
-        
+
         let timeString = '';
-        
+
         if (days > 30) {
             const months = Math.floor(days / 30);
             timeString = `<strong>${months}</strong> month${months > 1 ? 's' : ''} left`;
@@ -585,7 +590,7 @@ function updateCountdown() {
         } else {
             timeString = `<strong>${seconds}</strong>s`;
         }
-        
+
         element.innerHTML = timeString;
     });
 }
@@ -600,12 +605,12 @@ function checkUrgency() {
     countdownElements.forEach(element => {
         const deadline = element.getAttribute('data-deadline');
         if (!deadline) return;
-        
+
         const deadlineDate = new Date(deadline).getTime();
         const now = new Date().getTime();
         const distance = deadlineDate - now;
         const days = Math.floor(distance / (1000 * 60 * 60 * 24));
-        
+
         const deadlineItem = element.closest('.deadline-item');
         if (deadlineItem) {
             if (days <= 7) {
@@ -650,20 +655,20 @@ function closeLightbox() {
 
 function changeImage(direction) {
     currentImageIndex += direction;
-    
+
     // Wrap around
     if (currentImageIndex < 0) {
         currentImageIndex = galleryImages.length - 1;
     } else if (currentImageIndex >= galleryImages.length) {
         currentImageIndex = 0;
     }
-    
+
     const lightboxImage = document.getElementById('lightbox-image');
     lightboxImage.src = galleryImages[currentImageIndex];
 }
 
 // Close lightbox on Escape key
-document.addEventListener('keydown', function(e) {
+document.addEventListener('keydown', function (e) {
     const lightbox = document.getElementById('lightbox');
     if (lightbox.classList.contains('active')) {
         if (e.key === 'Escape') {
@@ -677,10 +682,10 @@ document.addEventListener('keydown', function(e) {
 });
 
 // Close lightbox when clicking on the background (set up after DOM loads)
-document.addEventListener('DOMContentLoaded', function() {
+document.addEventListener('DOMContentLoaded', function () {
     const lightbox = document.getElementById('lightbox');
     if (lightbox) {
-        lightbox.addEventListener('click', function(e) {
+        lightbox.addEventListener('click', function (e) {
             // Only close if clicking directly on the lightbox background
             if (e.target === this) {
                 closeLightbox();
@@ -690,7 +695,7 @@ document.addEventListener('DOMContentLoaded', function() {
         // Prevent closing when clicking on image or controls
         const lightboxContent = lightbox.querySelector('.lightbox-content');
         if (lightboxContent) {
-            lightboxContent.addEventListener('click', function(e) {
+            lightboxContent.addEventListener('click', function (e) {
                 e.stopPropagation();
             });
         }
